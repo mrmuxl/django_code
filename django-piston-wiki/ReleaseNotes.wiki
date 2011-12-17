@@ -1,0 +1,38 @@
+=== What's New / Release Notes ===
+
+== 0.2.2 (released on June 14th, 2009) ==
+
+See [[http://bitbucket.org/jespern/django-piston/changesets/0.2.2:0.2.1/|what changesets are between 0.2.1 and 0.2.2]].
+
+Get [[http://bitbucket.org/jespern/django-piston/downloads/django-piston-0.2.2.tar.gz|0.2.2 here]].
+
+This is mainly a bugfix release. Many patches/improvements received from various contributors. Should be 100% backwards compatible, and does not introduce any major features.
+
+== 0.2.1 (released on May 19th, 2009) ==
+
+Get [[http://bitbucket.org/jespern/django-piston/downloads/django-piston-0.2.1.tar.gz|0.2.1 here]].
+
+Major features include: Receiving expressive data, as POST-data is limited to basic key-value pairs. When client posts with a known content-type (e.g. application/json), Piston will automatically deserialize it, and place it in request.data. It will also set request.content_type to not-None, so you can easily write your handlers to support both. In case you only want to receive expressive data, the @require_mime and @require_extended decorators are very useful.
+
+Read more [[Documentation#receiving-data|about this here]].
+
+|=Changeset|=Description|
+|<<cset 48d14ac44c9d>>|Adding Mimer class, for receiving incoming expressive data (JSON/YAML/etc.), you can write your own, too. Adding @require_mime and @require_extended shortcut|
+|<<cset 8827d6384cc9>>|Using setuptools instead of distutils|
+|<<cset 8d19e0813f2a>>|Python 2.4 compatibility|
+|<<cset bc30b870fc52>>|Adding a simple javascript interface to the bundled blog example|
+|<<cset 5e8a41a5ace4>>|Fixes to XMLEmitter, wraps resources in <resource> now|
+|<<cset 96b8eeaaf806>>|Adding test environment, both with 1.0.2 and 1.1 (svn trunk)|
+|<<cset 4187f3f73971>>|AnonymousBaseHandler can be standalone|
+|<<cset f34e64f08b3e>>|Things explicitly specified in {{{fields}}} negates exclude|
+|<<cset e8b44815832f>>|Adding DjangoEmitter, emits fixtures|
+|<<cset 3ef379240125>>|Resource methods override normal field names now|
+|<<cset 26293e3884f4>>|utils.rc returns fresh HttpResponses now|
+|<<cset 92f9c3e81c46>>|Emitter detection moved to {{{Emitter.detect_emitter}}}, makes it easy to write detection in custom emitters, by subclassing|
+|<<cset b0a1571ff61a>>|Adding basic streaming support, requires patched middleware, see [[Documentation#streaming|Streaming]] for more details|
+|<<cset 9f69e8376c20>>|Using .get() instead of .filter() if primary key is specified in GET args|
+|<<cset f2eeaa7b8018>>|{{{fields}}} is respected if resource method returns a QuerySet|
+|<<cset 8d75ad40cf0a>>|Adding two methods to HandlerDocumentation: get_doc and get_resource_uri_template (see [[FAQ#what-is-an-uri-template|FAQ: URI Templates]] for more details|
+|<<cset 635bb010a9a5>>|Form validation via decorator now outputs errors correctly|
+|<<cset 9ef6ffd83c0e>>|Python 2.6 compatibility for HttpStatusCode exception|
+|<<cset a14b7b6ffa03>>|mod_python compatability, and preserving request.FILES|
